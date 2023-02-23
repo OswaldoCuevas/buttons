@@ -7,34 +7,58 @@ body,html {
     height: 100%;
     
 }
-.contenedor-principal{
+
+h1{
+font-size: 40px;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+animation:my-animation 1.5s linear;
+animation-play-state: running;
+}
+.nav{
     width: 100%;
-    height: 100%;
-    align-items: center;
+    height: 100px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    transition: ease-in .1s;
+}
+.nav:hover{
+    transform: scale(1.2);
+}
+.contenedor-principal{
+    width: 80%;
+    height: 70%;
+    margin-left: 10%;
+    align-items: center;
+    justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
-    background-image: linear-gradient(155deg, #ee6f2f 0, #ff410d 25%, #f60d0d 50%, #eb000f 75%, #e20015 100%);
-    
+
+   
 }
     .contenedor-principal button{
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     background-color: transparent;
     border: none;
     border: solid 2px #e29300;
+    background-color: #ffbf49d1;;
     border-radius: 10px;
     color: aliceblue;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     text-transform: uppercase;
     font-size: 30px;
-    width: 70%;
+    width: 30%;
     height: 60px;
     cursor: pointer;
     position: relative;
  overflow: hidden;
     
+}
+.aparecer{
+    animation:my-animation 1.5s linear;
+    animation-play-state: running;
 }
 .contenedor-principal button::after{
 content: "";
@@ -53,3 +77,20 @@ button:focus::after{
 .contenedor-principal span{
     z-index: 2;
     }
+
+    
+    @keyframes my-animation {
+        from {
+            opacity: 0;
+        }
+        15% {
+            opacity: .20;
+        }
+         75% {
+            opacity: .90;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
