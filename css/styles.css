@@ -5,14 +5,34 @@
 body,html {
     width: 100%;
     height: 100%;
-    
+    min-width: 1000px;
+    overflow: auto;
 }
 
 h1{
 font-size: 40px;
 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-animation:my-animation 1.5s linear;
+animation:rotar 1.9s linear;
 animation-play-state: running;
+}
+.span-1{
+    font-size: 60px;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+display: flex;
+justify-content: center;
+
+}
+#p6{
+    font-size: 80px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+}
+.span-1 p{
+margin:10px;
+opacity: 0;
+font-weight: bold;
 }
 .nav{
     width: 100%;
@@ -22,28 +42,25 @@ animation-play-state: running;
     align-items: center;
     transition: ease-in .1s;
 }
-.nav:hover{
-    transform: scale(1.2);
-}
+
+
 .contenedor-principal{
     width: 80%;
-    height: 70%;
     margin-left: 10%;
     align-items: center;
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
-
+    padding: 40px 10px;
    
 }
-    .contenedor-principal button{
+.contenedor-principal button{
     display: inline-flex;
     align-items: center;
     justify-content: space-around;
     background-color: transparent;
     border: none;
-    border: solid 2px #e29300;
-    background-color: #ffbf49d1;;
+    background-color: #302931;;
     border-radius: 10px;
     color: aliceblue;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -53,44 +70,184 @@ animation-play-state: running;
     height: 60px;
     cursor: pointer;
     position: relative;
- overflow: hidden;
+    overflow: hidden;
+    opacity: 0;
+   
+    
     
 }
 .aparecer{
-    animation:my-animation 1.5s linear;
+    animation:aparecer 1.1s linear;
     animation-play-state: running;
+    animation-fill-mode: forwards;
 }
-.contenedor-principal button::after{
+.contenedor-principal #uno::after{
 content: "";
 width: 100% ;
 height:0;
-border-top: 60px solid  #ffaa0dd8;
+border-top: 60px solid  #286cff;
 border-right: 60px solid  transparent;
 left:calc(-100% - 60px);
 position: absolute;
 z-index: 1;
-transition: all 1.0s ease-in-out;
+transition: all .3s ease-in-out;
 }
-button:focus::after{
+#uno:focus::after{
     left:0;
+}
+#dos::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	background: #c4b107;;
+	position: absolute;
+	z-index: 1;
+	top: -80px;
+	left: 0;
+	transition: .3s ease-in-out all;
+}
+
+#dos:focus::after {
+	top: 0;
+}
+#tres::after {
+	content: "";
+	width: 100%;
+	height: 300px;
+	background: #18a362;
+	position: absolute;
+	z-index: 1;
+	top: -300px;
+	left: 0;
+	transition: .4s ease-in-out all;
+	border-radius: 0px 0px 300px 300px;
+}
+
+#tres:focus::after {
+	top: 0;
+}
+#cuatro::after {
+	content: "";
+	width: 1px;
+	height: 1px;
+	background: none;
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: 50%;
+	transition: .3s ease-in-out all;
+	border-radius: 100px;
+	transform-origin: center;
+}
+
+#cuatro:focus::after {
+	transform: scale(400);
+	background: #cc1010;
+}
+#cinco span {
+	transition: .4s ease-in-out all;
+	position: absolute;
+	left: 30%;
+}
+
+#cinco .icono {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	z-index: 2;
+	left: -40px;
+	transition: .3s ease-in-out all;
+	opacity: 0;
+}
+
+#cinco svg {
+	color: #fff;
+	width: 35px;
+	height: 35px;
+}
+
+#cinco:focus {
+	background: #2f9b05;
+}
+
+#cinco:focus .icono {
+	left: calc(100% - 50px);
+	opacity: 1;
+}
+
+#cinco:focus span {
+	left: 20px;
 }
 .contenedor-principal span{
     z-index: 2;
     }
-
+    #seis {
+        background: none;
+        color: #000;
+    }
     
-    @keyframes my-animation {
-        from {
+    #seis svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        fill: none;
+        
+    }
+    
+    #seis rect {
+        width: 100%;
+        height: 100%;
+        stroke: #000;
+        stroke-width: 10px;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        transition: .6s ease all;
+    }
+    
+    #seis:focus rect {
+        stroke-dashoffset: 0;
+    }
+
+    @keyframes aparecer{
+        from{
             opacity: 0;
+        }50% {
+            opacity: 0.5;
+            transform:  scale(1.1)
+        }100%{
+            opacity: 1;
+            transform:  scale(1)
+        }
+    }
+    @keyframes rotar {
+        from {
+            transform: rotate(0deg)
         }
         15% {
-            opacity: .20;
+            
+            transform: rotate(12deg) scale(1.2)
         }
-         75% {
-            opacity: .90;
+        25% {
+            transform: rotate(-12deg)
         }
-        to {
-            opacity: 1;
+        35% {
+            transform: rotate(5deg)
+        }
+         40% {
+            transform: rotate(-5deg) 
+             
+        }
+        50% {
+            transform: rotate(1deg)
+        }
+         60% {
+            transform: rotate(-1deg)
+        }
+        70% {
+            
+          
         }
     }
     

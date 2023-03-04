@@ -3,18 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>wrap prueba</title>
     <link rel="stylesheet" href="css/styles.css">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
 </head>
 <body>
     <nav class="nav nav-light"><h1>Mis botones</h1></nav>
     
     <div class="contenedor-principal">
-        <button><span>Prueba boton</span></button>
-        <button><span>Prueba boton</span></button>
+        <button id="uno" class="buttons" ><span>Botón 1</span></button>
+        <button id="dos" class="buttons"><span>Botón 2</span></button>
+        <button id="tres" class="buttons"><span>Botón 3</span></button>
+       
     </div>
+    <div class="contenedor-principal">
+        <button id="cuatro" class="buttons" ><span>Botón 4</span></button>
+        <button id="cinco" class="buttons">
+            <div class="icono">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                </svg>
+            </div>
+            <span>Botón 5</span>
+        </button>
+        <button id="seis" class="buttons">
+            <span>Botón 6</span>
+				<svg>
+					<rect x="0" y="0" fill="none"></rect>
+				</svg>
+			
+            </button>
+    </div>
+    <span class="span-1"> <p id="p1"></p> <p id="p2"></p> <p id="p3"> </p> <p id="p4"> </p> <p id="p5" > Mädchen </p></span>
+        <p id="p6"></p>
 </body>
 </html>
+<script>
+    const buttons = document.getElementsByClassName("buttons")
+    $("#uno").click(function(){
+        $("#p1").addClass("aparecer")
+    })
+    $("#dos").click(function(){
+        $("#p2").addClass("aparecer")
+    })
+    $("#tres").click(function(){
+        $("#p3").addClass("aparecer")
+    })
+    $("#cuatro").click(function(){
+        $("#p4").addClass("aparecer")
+    })
+    $("#cinco").click(function(){
+        $("#p5").addClass("aparecer")
+    })
+    $("#seis").click(function(){
+        $("#p6").addClass("aparecer")
+    })
+
+    for( index = 0; index < buttons.length; index++){
+        const time = index * 1000
+        animationButton(buttons[index],index)
+            
+    }   
+    function delay(time){//crea un retardo
+	    return new Promise(resolve => setTimeout(resolve, time));
+    }
+    async function  animationButton(button,time){// hace una animacion en una cadena de botones y un tiempo dado
+        console.log("Hola");
+        await delay(200*index);
+        button.classList.add('aparecer');
+    }
+   
+
+</script>
